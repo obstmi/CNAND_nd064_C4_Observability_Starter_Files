@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: second-sample-app
-          image: obstmi/my-sample-app-v2:latest
+          image: ghcr.io/jasonsmithio/my-sample-app:v2
           imagePullPolicy: Always
           env:
           - name: OTEL_EXPORTER_OTLP_ENDPOINT
