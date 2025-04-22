@@ -16,12 +16,30 @@
 
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+### SLO: "Monthly Uptime"
+* This SLO specifies the target for the percentage of time a service should be available per month.  
+* A Service Level Indicator (SLI) is the metric that is measured to determine whether you are achieving this SLO. In other words, a technical or quantifiable indicator.  
+* In this case the __SLI__ could be:  
+"Availability of the service _in relation_ to the total time in the month, measured as (available minutes / total minutes of the month)."
+### SLO: "Request Response time"
+* This SLO specifies the response time in a certain period of time.  
+* An __SLI__ would be in this case the proportion of requests that are answered within a certain time limit:  
+* E.g.: Percentage of requests with a response time of less than 300 ms.
 
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
 
+The main goal is, that the deployed application provides a good level of performance to the customer. This is called the service level.  
+This service is defined in terms of four core properties, called the "Four Golden Signals". The metrics for these are: 
+* Latency — The time taken to serve a request, e.g. in milliseconds
+* Traffic — The amount of stress on a system from demand, e.g. HTTP requests per second
+* Errors — The number of requests that are failing, e.g. number of HTTP 500 responses
+* Saturation — The overall capacity of a service, e.g. percentage of memory used  
+Another property would be:  
+* Uptime - The percentage of time the service is running and available within a given timeframe
+
 ## Create a Dashboard to measure our SLIs
-*TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
+*TODO:* Create a dashboard to measure the uptime of the frontend and backend services. We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
 
 ## Tracing our Flask App
 *TODO:*  We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here. Also provide a (screenshot) sample Python file containing a trace and span code used to perform Jaeger traces on the backend service.
