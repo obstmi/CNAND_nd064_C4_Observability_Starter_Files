@@ -196,7 +196,7 @@ see: https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-ac
 * Saturation (the overall capacity of a service e.g. the percentage of memory or CPU used)  
 and further:
 * Network capacity
-* Uptime
+* Uptime (the percentage of time the service is running and available within a given timeframe)
 
 Terms:
 * bounce rate: number of users how are exciting an app without using it

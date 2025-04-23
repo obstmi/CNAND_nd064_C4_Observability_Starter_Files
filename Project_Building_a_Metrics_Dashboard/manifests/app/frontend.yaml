@@ -15,7 +15,8 @@ spec:
       containers:
       - name: frontend
         # We advise you to build, push and use your own image, instead of using instructor's image.
-        image: obstmi/project3-frontend:v1
+        image: obstmi/project3-frontend:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
 ---
