@@ -50,22 +50,28 @@
 ![](answer-img/Jaeger_in_Grafana_Dashboard.png)
 
 ## Report Error
-*TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
+*DONE:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue also include a screenshot of the tracer span to demonstrate how we can user a tracer to locate errors easily.
 
 TROUBLE TICKET
 
 Name:
+Michael Obst
 
 Date:
+25.04.2025
 
 Subject:
+Latency issue with the database
 
 Affected Area:
+backend-service
 
 Severity:
+Medium
 
 Description:
-
+Backend oprations take more and more longer. According to the Jaeger traces the database-operations seem to cause this issue. For an example please see the attached Jaeger trace "add_star": the ‘insert_data’ span takes up almost the entire time of the ‘add_star’ trace. Please check the database.  
+![](answer-img/Backend_Error_Trace.png)
 
 ## Creating SLIs and SLOs
 *TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
