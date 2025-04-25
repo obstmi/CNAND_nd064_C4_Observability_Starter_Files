@@ -10,3 +10,5 @@ itsdangerous==2.0.1
 werkzeug==2.0.3
 prometheus-flask-exporter==0.18.1
 flask_cors==3.0.10
+jaeger-client==4.6.0
+opentracing==2.4.0
