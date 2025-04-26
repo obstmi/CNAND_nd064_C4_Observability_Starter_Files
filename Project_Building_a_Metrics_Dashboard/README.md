@@ -74,10 +74,45 @@ Backend oprations take more and more longer. According to the Jaeger traces the 
 ![](answer-img/Backend_Error_Trace.png)
 
 ## Creating SLIs and SLOs
-*TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
+*DONE:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name four SLIs that you would use to measure the success of this SLO.
+1. HTTP Requests Rate  
+* Definition: Percentage of HTTP requests that returned a 2xx or 3xx status code.
+* SLI: Number of successful HTTP requests / total number of http requests * 100
+
+2. Latency
+* Definition: Share of HTTP requests served within an acceptable response time (e.g. under 500 milliseconds).
+* SLI: Requests with latency < 500ms / total number of requests * 100
+
+3. Availibility
+* Definition: Percentage of time that key application endpoints respond successfully (e.g., via health checks).
+* SLI: Time endpoint responded successfully / total time in month * 100
+
+4. Infrastructure uptime
+* Uptime percentage of critical infrastructure components (e.g., database, load balancer, API gateway).
+* SLI: Component uptime / total time in month * 100
 
 ## Building KPIs for our plan
-*TODO*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+*DONE*: Now that we have our SLIs and SLOs, create a list of 2-3 KPIs to accurately measure these metrics as well as a description of why those KPIs were chosen. We will make a dashboard for this, but first write them down here.
+1. Monthly Application Uptime (%)
+* Definition: Percentage of time during a given month that the application was reachable through key endpoints (e.g., /health).
+* Uptime = Available Minutes / Total minutes a month * 100
+* Based on SLI 3
+* Directly validates the 99.95% SLO, easy to report and easy for SLA verification
+
+2. Error Rate
+* Definition: Percentage of failed HTTP requests (e.g., 5xx or 4xx)
+* Error Rate = Number of failed requests (4xx, 5xx) / Number of total requests * 100
+* Based on SLI 1
+* Indicates backend reliability and system health, helps detect issues even when uptime appears normal, helpful for engineering teams during incident response.
+
+3. Average Request Latency
+* Definition: The average response time of all HTTP requests over the course of the month (also useful using the 95th percentile).
+* Average Latency = Total request time / number of requests
+* Based on SLI 2
+* Monitors user experience, early warning sign for performance degradation
 
 ## Final Dashboard
-*TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+*DONE*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+![](answer-img/Application_Uptime_Dashboard_15min.png)
+![](answer-img/Application_Uptime_Dashboard_24h.png)
+
