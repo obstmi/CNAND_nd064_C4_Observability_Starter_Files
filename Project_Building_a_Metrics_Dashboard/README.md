@@ -26,7 +26,7 @@
 * An __SLI__ would be in this case the proportion of requests that are answered within a certain time limit:  
 * E.g.: Percentage of requests with a response time of less than 300 ms.
 
-## Creating SLI metrics.
+## Creating SLI metrics. (Comment: I think, here are KPI metrics requested!!)
 *DONE:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
 
 * Uptime: Total number of minutes in which the service was available (e.g. health check status 200).
