@@ -115,4 +115,25 @@ Backend oprations take more and more longer. According to the Jaeger traces the 
 *DONE*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
 ![](answer-img/Application_Uptime_Dashboard_15min.png)
 ![](answer-img/Application_Uptime_Dashboard_24h.png)
+Description of the graphs in the Dashboard:  
+1. **Monthly application uptime - backend-service:**  
+* In this graph we are measuring the uptime of the backend-service, in order to find out the percentage of time during a month that the application was reachable.  
+* It is calculated like this: (available minutes / total minutes a month * 100)  
+* The corresponding PromQL is:  `(avg by (job) (avg_over_time(up{job="backend-service"}[30d]))) * 100`
+2. **Average latency = Total request time / number of requests**  
+* In this graph we are measuring the average response time of all HTTP requests over the course of the month in order to measure the latency of the backend-service.  
+* It is calculated like this: (average latency = total request time / number of requests)  
+* The corresponding PromQL is:  
+`sum by (method, path) (rate(flask_http_request_duration_seconds_sum[5m]))
+/
+sum by (method, path) (rate(flask_http_request_duration_seconds_count[5m]))
+*1000`
+3. **Error rate: Percentage of failed HTTP requests (4xx or 5xx)**  
+* In this graph we are measuring the error rate = failed HTTP requests of the backend-service
+* It is calculated like this: 
+(number of failed requests (4xx, 5xx) / number of total requests * 100)  
+* The corresponding PromQL is:  
+`(sum(rate(flask_http_request_total{status=~"4..|5.."}[5m])) / 
+  sum(rate(flask_http_request_total[5m]))) * 100`
+
 
